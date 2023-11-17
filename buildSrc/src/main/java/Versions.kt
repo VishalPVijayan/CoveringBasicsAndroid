@@ -1,0 +1,21 @@
+object Versions {
+    const val gradle = "4.1.0"
+    const val kotlin = "1.4.10"
+    const val appcompat = "1.2.0"
+    const val coreKtx = "1.3.2"
+    const val designSupport = "1.2.1"
+    const val constraintLayout = "2.0.2"
+    const val lifecycle = "2.2.0"
+    const val recyclerView = "1.1.0"
+    const val cardView = "1.0.0"
+    const val navComponent = "2.3.0"
+    const val hilt = "2.28-alpha"
+    const val hiltSnapShot = "1.0.0-alpha01"
+    const val okHttp = "4.8.1"
+    const val retrofit = "2.9.0"
+    const val gson = "2.8.6"
+    const val material = "1.10.0"
+
+    const val lottie = "3.1.0"
+    const val mdc = "1.3.0"
+}
