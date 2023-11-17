@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "CoveringBasics"
 include(":app")
- 
+include(":utilities")
+include(":utilities")

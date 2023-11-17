@@ -1,6 +1,18 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
+    /*kotlin("android")
+    kotlin("android.extensions")
+    kotlin("kapt")
+    id("kotlin-android")
+    id("androidx.navigation.safeargs")
+    id("dagger.hilt.android.plugin")*/
+}
+
+apply {
+    plugin("kotlin-android")
 }
 
 android {
@@ -34,7 +46,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -51,7 +63,48 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.appcompat)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.constraintLayout)
+
+
+    // Hilt
+    implementation(Dependencies.hiltCore)
+    implementation(Dependencies.hiltCommon)
+    implementation(Dependencies.hiltViewModelLifecycle)
+    kapt(Dependencies.hiltDaggerAndroidCompiler)
+    kapt(Dependencies.hiltCompiler)
+
+    // Navigation
+    implementation(Dependencies.navComponentFragment)
+    implementation(Dependencies.navComponentUi)
+
+    // Okhttp
+    implementation(Dependencies.okHttp)
+    implementation(Dependencies.okHttpLogging)
+
+    // Retrofit
+    implementation(Dependencies.retrofit)
+
+    // Gson
+    implementation(Dependencies.gson)
+
+    //MDC
+    implementation(Dependencies.MDC)
+
+    implementation(project(Modules.utilities))
+
+   /* implementation(project(Modules.central))
+
+    //Cat fun facts modules
+    implementation(project(Modules.catfunfacts))
+
+    //Dog fun facts modules
+    implementation(project(Modules.dogfunfacts))*/
+
+    /*implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -65,5 +118,5 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")*/
 }
